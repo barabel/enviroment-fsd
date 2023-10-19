@@ -1,0 +1,13 @@
+<{{ data.url ? 'a' : 'div' }}
+class="button-bullet h5{% if data.isActive %} tab-active{% endif %} {{ class }}"
+{% if data.url %} href="{{ data.url }}" {% endif %}
+{% if "//" in data.url %} target="_blank"{% endif %}
+{{ attributes }}>
+{% if data.title %}
+  {% if data.titleMobile %}
+    <span class="h5"><span class="button-bullet__tablet-show">{{ data.title }}</span><span class="button-bullet__mobile-show">{{ data.titleMobile }}</span></span>
+  {% else %}
+    <span class="h5">{{ data.title }}</span>
+  {% endif %}
+{% endif %}
+</{{ data.url ? 'a' : 'div' }}>

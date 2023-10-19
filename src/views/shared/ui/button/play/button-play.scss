@@ -1,0 +1,29 @@
+$parent: "button-play";
+
+@include block($parent) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: rem(72);
+  height: rem(72);
+  padding: 0;
+  border: none;
+  background-color: $color-white;
+  border-radius: 50%;
+
+  &:hover {
+    @include element($parent, 'icon') {
+      stroke: $color-crusoe;
+    }
+  }
+
+  @include element($parent, 'icon') {
+    display: block;
+    width: rem(24);
+    height: rem(24);
+    stroke: $color-pigment-green;
+    fill: transparent;
+
+    transition: stroke 0.3s;
+  }
+}

@@ -1,0 +1,32 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "popup-callback";
+
+@include block($parent) {
+  position: relative;
+  min-width: rem(320);
+  padding: rem(16);
+  background-color: $color-white;
+
+  @include min-media('t') {
+    min-width: rem(768);
+    padding: rem(48);
+  }
+
+  @include min-media('d') {
+    width: rem(908);
+    padding: rem(64);
+  }
+
+  @include element($parent, 'button-close') {
+    position: absolute;
+    top: rem(24);
+    right: rem(24);
+  }
+
+  @include element($parent, 'title') {
+    margin-bottom: rem(24);
+    text-align: center;
+    color: $color-pigment-green;
+  }
+}

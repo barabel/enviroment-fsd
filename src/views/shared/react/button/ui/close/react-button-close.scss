@@ -1,0 +1,53 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: 'react-button-close';
+
+@include block($parent) {
+  position: relative;
+  width: rem(24);
+  height: rem(24);
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: rem(11);
+    left: 0;
+    content: '';
+    width: rem(24);
+    height: 1px;
+    background-color: $color-nero;
+    transition: background-color 0.3s;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      background-color: rgba($color-nero, 0.5);
+    }
+  }
+
+  @include modifier($parent, 'white') {
+    &::before,
+    &::after {
+      background-color: $color-white;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: rgba($color-white, 0.5);
+      }
+    }
+  }
+}

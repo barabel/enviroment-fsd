@@ -1,0 +1,17 @@
+<div class="checkbox-common {{ class }}" {{ attributes }}>
+  <label class="checkbox-common__label">
+    <input
+      class="checkbox-common__input"
+      type="checkbox"
+      {% if data.name %}name="{{ data.name }}"{% endif %}
+      {% if data.value %}value="{{ data.value }}"{% endif %}
+      {% if data.isDisabled %}disabled="{{ data.isDisabled }}"{% endif %}
+      {% if data.isSelected %}checked="{{ data.isSelected }}"{% endif %}
+    ></input>
+    <div class="checkbox-common__wrapper">
+      {% if data.title %}
+        <span class="checkbox-common__item t3"> {{ data.title }} </span>
+      {% endif %}
+    </div>
+  </label>
+</div>

@@ -1,0 +1,1 @@
+export { initVideoBlock } from './ui';

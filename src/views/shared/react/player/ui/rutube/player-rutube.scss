@@ -1,0 +1,9 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "player-rutube";
+
+@include block($parent) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

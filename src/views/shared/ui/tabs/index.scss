@@ -1,0 +1,121 @@
+@import "../../../../../node_modules/swiper/swiper";
+
+$parent: "tabs";
+
+@include block($parent) {
+  @include element($parent, 'wrapper-buttons') {
+    width: calc(100% - #{rem(32)});
+    margin: 0 auto;
+    margin-bottom: rem(15);
+
+    @include min-media('t') {
+      width: calc(100% - #{rem(96)});
+      margin-bottom: rem(16);
+    }
+
+    @include min-media('d') {
+      width: calc(100% - #{rem(180)});
+      margin-bottom: rem(24);
+    }
+
+    @include min-media('xxl') {
+      margin-bottom: rem(32);
+    }
+  }
+
+  @include element($parent, 'swiper-buttons') {
+    position: relative;
+
+    @include min-media('d') {
+      width: 100%;
+      padding: 0 rem(32);
+    }
+  }
+
+  @include element($parent, 'buttons') {
+    display: block;
+    margin: 0 auto;
+    white-space: nowrap;
+    text-align: center;
+    overflow-x: auto;
+
+    & > * {
+      display: inline-block;
+      width: auto;
+      height: auto;
+    }
+
+    @include min-media('d') {
+      overflow: visible;
+    }
+  }
+
+  @include element($parent, 'navigation') {
+    display: none;
+
+    @include min-media('d') {
+      z-index: 1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+
+  @include element($parent, 'nav-btn') {
+    width: rem(32);
+    height: rem(32);
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    pointer-events: auto;
+    background-color: $color-white;
+
+    @media (hover: hover) {
+      &:hover {
+        @include element($parent, 'icon') {
+          stroke: $color-crusoe;
+        }
+      }
+    }
+
+    &.swiper-button-disabled {
+      &:hover {
+        @include element($parent, 'icon') {
+          stroke: rgba($color-nero, 0.2);
+        }
+      }
+
+      @include element($parent, 'icon') {
+        stroke: rgba($color-nero, 0.2);
+      }
+    }
+
+    &.swiper-button-lock {
+      display: none;
+    }
+
+    @include modifier($parent, 'prev') {
+      transform: rotate(180deg);
+    }
+  }
+
+  @include element($parent, "icon") {
+    width: rem(32);
+    height: rem(32);
+    fill: $color-white;
+    stroke: $color-pigment-green;
+
+    transition: stroke 0.3s;
+  }
+
+  @include element($parent, 'content-wrapper') {
+    position: relative;
+  }
+}

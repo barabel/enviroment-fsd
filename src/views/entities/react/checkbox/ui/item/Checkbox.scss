@@ -1,0 +1,45 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "checkbox";
+
+@include block($parent) {
+  display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  @include element($parent, "label") {
+    display: inline-flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include element($parent, "input") {
+    display: none;
+
+    &:checked + .#{$parent}__wrapper {
+      color: $color-nero;
+      border-bottom-color: $color-pigment-green;
+    }
+  }
+
+  @include element($parent, "wrapper") {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: rem(8);
+    border-bottom: 1px solid transparent;
+    color: rgba($color-nero, 0.5);
+    cursor: pointer;
+    transition: color 0.3s ease, border-bottom-color 0.3s;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $color-nero;
+      }
+    }
+  }
+
+  @include element($parent, "item") {
+    text-transform: uppercase;
+  }
+}

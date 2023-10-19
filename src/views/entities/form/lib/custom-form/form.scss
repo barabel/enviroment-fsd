@@ -1,0 +1,56 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: 'form';
+
+@include block($parent) {
+  @include element($parent, 'fieldset') {
+    width: 100%;
+    margin-bottom: rem(24);
+
+    @include min-media('t') {
+      margin-bottom: rem(32);
+    }
+  }
+
+  @include element($parent, 'field') {
+    margin-bottom: rem(24);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  @include element($parent, 'politics') {
+    margin-bottom: rem(32);
+    text-align: center;
+
+    @include min-media('t') {
+      margin-bottom: rem(40);
+    }
+  }
+
+  @include element($parent, 'submit-button') {
+    margin: 0 auto;
+  }
+
+  @include modifier($parent, 'callback') {
+    @include element($parent, 'fieldset') {
+      @include min-media('t') {
+        display: flex;
+        flex-wrap: wrap;
+        gap: rem(24) rem(32);
+      }
+    }
+
+    @include element($parent, 'field') {
+      @include min-media('t') {
+        width: calc(50% - #{rem(16)});
+        margin-bottom: 0;
+
+        &:last-child {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

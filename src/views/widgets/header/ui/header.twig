@@ -1,0 +1,30 @@
+<div class="header {{ class }}" data-scroll-lock-fill-gap>
+  <div class="header__content container-header">
+    <div class="header__left">
+      {% if data.menu %}
+        {% include "./burger/header-burger.twig" with { class: "header__burger" } only %}
+      {% endif %}
+      {% if data.link.url and data.link.title %}
+        {% include "@root/shared/ui/link/link.twig" with {
+          class: "header__link",
+          data: {
+            url: data.link.url,
+            title: data.link.title
+          }
+        } only %}
+      {% endif %}
+    </div>
+    <a class="header__logo" href="/">
+      <svg class="header__logo-img">
+        <use xlink:href="/assets/svg/sprite.svg#logo"></use>
+      </svg>
+    </a>
+    <div class="header__right">
+      {% include "./callback/header-callback.twig" with { class: "header__callback" } only %}
+      {% if phone %}
+        {% include "./phone-link/header-phone-link.twig" with { class: "header__phone", phone: phone } only %}
+      {% endif %}
+    </div>
+  </div>
+  {% include "./menu/header-menu.twig" with { class: "header__menu", menu: data.menu, phone: phone } only %}
+</div>

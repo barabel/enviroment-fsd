@@ -1,0 +1,24 @@
+<div class="tabs {{ class }}">
+  <div class="tabs__wrapper-buttons">
+    <div class="tabs__swiper-buttons swiper">
+      <div class="tabs__buttons swiper-wrapper">
+        {% block buttons %}{% endblock %}
+      </div>
+      <div class="tabs__navigation">
+        <button class="tabs__nav-btn tabs__nav-btn--prev swiper-button-prev">
+          <svg class="tabs__icon">
+            <use xlink:href="/assets/svg/sprite.svg#sliderBtn"></use>
+          </svg>
+        </button>
+        <button class="tabs__nav-btn tabs__nav-btn--next swiper-button-next">
+          <svg class="tabs__icon">
+            <use xlink:href="/assets/svg/sprite.svg#sliderBtn"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="tabs__content-wrapper">
+    {% block tabContent %}{% endblock %}
+  </div>
+</div>

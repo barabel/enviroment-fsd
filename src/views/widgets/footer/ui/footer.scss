@@ -1,0 +1,177 @@
+$parent: 'footer';
+
+@include block($parent) {
+  background-color: $color-ghost-white;
+  color: rgba($color-nero, 0.5);
+  padding: rem(24) rem(16);
+
+  @include min-media('t') {
+    padding: rem(32) rem(48);
+  }
+
+  @include min-media('d') {
+    padding: rem(32) rem(88);
+  }
+
+  @include min-media('xxl') {
+    padding: rem(40) rem(120);
+  }
+
+  @include element($parent, 'pin') {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto rem(24);
+
+    @include min-media('xxl') {
+      margin-bottom: rem(48);
+    }
+  }
+
+  @include element($parent, 'pin-icon') {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: rem(16);
+    height: rem(16);
+
+    @include min-media('t') {
+      width: rem(20);
+      height: rem(20);
+    }
+
+    @include min-media('d') {
+      width: rem(24);
+      height: rem(24);
+    }
+
+    @include min-media('xxl') {
+      width: rem(28);
+      height: rem(28);
+    }
+  }
+
+  @include element($parent, 'pin-link') {
+    color: $color-pigment-green;
+    padding-left: rem(24);
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    @include max-media('mMax') {
+      letter-spacing: 0.02em;
+    }
+
+    @include min-media('t') {
+      padding-left: rem(28);
+    }
+
+    @include min-media('d') {
+      padding-left: rem(32);
+    }
+
+    @include min-media('xxl') {
+      padding-left: rem(36);
+    }
+  }
+
+  @include element($parent, 'center') {
+    width: 100%;
+    position: relative;
+
+    @include min-media('d') {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @include element($parent, 'copyright-wrapper') {
+    display: flex;
+    align-items: center;
+
+    @include min-media('d') {
+      order: 1;
+    }
+
+    @include max-media('dMax') {
+      width: fit-content;
+      margin: rem(16) auto 0;
+    }
+  }
+
+  @include element($parent, 'logos') {
+    @include max-media('dMax') {
+      justify-content: center;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    @include min-media('d') {
+      position: sticky;
+      left: 50%;
+      transform: translateX(-50%);
+      order: 2;
+    }
+  }
+
+  @include element($parent, 'logo') {
+    @include element-next($parent, 'logo') {
+      margin-left: rem(24);
+    }
+  }
+
+  @include element($parent, 'politics') {
+    margin-left: rem(16);
+    color: rgba($color-nero, 0.5);
+
+    &:hover {
+      color: rgba($color-nero, 0.2);
+    }
+
+    @include min-media('xxl') {
+      margin-left: rem(24);
+    }
+  }
+
+  @include element($parent, 'links') {
+    display: flex;
+
+    @include max-media('dMax') {
+      width: fit-content;
+      margin: rem(16) auto 0;
+    }
+
+    @include min-media('d') {
+      order: 3;
+    }
+  }
+
+  @include element($parent, 'link') {
+    color: rgba($color-nero, 0.5);
+
+    &:hover {
+      color: rgba($color-nero, 0.2);
+    }
+
+    @include element-next($parent, 'link') {
+      margin-left: rem(16);
+
+      @include min-media('xxl') {
+        margin-left: rem(24);
+      }
+    }
+  }
+
+  @include element($parent, 'description') {
+    margin-top: rem(16);
+    padding-top: rem(16);
+    border-top: 1px solid rgba($color-nero, 0.2);
+    text-align: center;
+
+    @include min-media('xxl') {
+      margin-top: rem(20);
+      padding-top: rem(20);
+    }
+  }
+}

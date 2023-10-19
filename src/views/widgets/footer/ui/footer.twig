@@ -1,0 +1,43 @@
+<div class="footer">
+  {% if data.pin %}
+    <div class="footer__pin">
+      <svg class="footer__pin-icon">
+        <use xlink:href="/assets/svg/sprite.svg#pin"></use>
+      </svg>
+      {% include "@root/shared/ui/link/link.twig" with { data: data.pin, typography: "h5", class: "footer__pin-link" } only %}
+    </div>
+  {% endif %}
+  <div class="footer__center t2">
+    {% if data.logos %}
+      <div class="footer__logos">
+        {% for logo in data.logos %}
+          {% if logo.url %}
+            <a href="{{ logo.url }}" class="footer__logo" target="_blank"><img src="{{ logo.src }}" alt="{{ logo.alt }}" /></a>
+          {% else %}
+            <img src="{{ logo.src }}" class="footer__logo" alt="{{ logo.alt }}" />
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% if data.copyright or data.politics %}
+      <div class="footer__copyright-wrapper">
+        {% if data.copyright %}
+          <div class="footer__copyright">{{ data.copyright }}</div>
+        {% endif %}
+        {% if data.politics %}
+          {% include "@root/shared/ui/link/link.twig" with { data: data.politics, attributes: "target=_blank", typography: "t2", class: "footer__politics" } only %}
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if data.links %}
+      <div class="footer__links">
+        {% for link in data.links %}
+          {% include "@root/shared/ui/link/link.twig" with { data: link, typography: "t2", class: "footer__link" } only %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+  {% if data.description %}
+    <div class="footer__description t2">{{ data.description }}</div>
+  {% endif %}
+</div>

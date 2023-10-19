@@ -1,0 +1,17 @@
+.container {
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.container-header {
+  padding: 0 rem(16);
+
+  @include min-media('t') {
+    padding: 0 rem(48);
+  }
+}
+
+.container-details-news {
+  padding-left: var(--container-details-news-padding);
+  padding-right: var(--container-details-news-padding);
+}

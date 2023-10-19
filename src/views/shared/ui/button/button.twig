@@ -1,0 +1,17 @@
+<{{ data.url ? 'a' : 'button' }}
+class="button t4 {{ class }}"
+{% if data.url %} href="{{ data.url }}" {% endif %}
+{% if "//" in data.url %} target="_blank"{% endif %}
+{{ attributes }}
+{% if data.popup %} data-popup="{{ data.popup }}"{% endif %}>
+{% if data.title %}
+<span class="button__wrapper">
+  <span class="button__content">
+    {{ data.title }}
+  </span>
+  <span class="button__content">
+    {{ data.title }}
+  </span>
+</span>
+{% endif %}
+</{{ data.url ? 'a' : 'button' }}>

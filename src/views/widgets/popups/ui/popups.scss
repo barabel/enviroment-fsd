@@ -1,0 +1,35 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "popups";
+
+@include block($parent) {
+  $popup-transition-appearing: 0.3s;
+
+  z-index: calc(var(--header-z-index) + 1);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color-nero, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity $popup-transition-appearing, visibility $popup-transition-appearing;
+
+  @include element($parent, 'wrapper') {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include modifier($parent, "appearing") {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}

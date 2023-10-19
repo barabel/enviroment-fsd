@@ -1,0 +1,120 @@
+@import "src/assets/styles/_for-react-components.scss";
+@import '../../../../../../../node_modules/swiper/swiper.scss';
+
+$parent: "popup-image-slider";
+
+@include block($parent) {
+  width: fit-content;
+  height: 100%;
+
+  img {
+    display: block;
+    width: 100%;
+    height: rem(249);
+    aspect-ratio: 1.51/1;
+    object-fit: contain;
+  }
+
+  @include min-media('t') {
+    img {
+      height: rem(415);
+      aspect-ratio: 1.5/1;
+    }
+  }
+
+  @include min-media('d') {
+    img {
+      height: rem(600);
+    }
+  }
+
+  @include min-media('xxl') {
+    img {
+      height: rem(756);
+      aspect-ratio: 1.49/1;
+    }
+  }
+
+  @include element($parent, 'btn-close') {
+    position: absolute;
+    top: rem(-40);
+    right: rem(16);
+
+    @include min-media('t') {
+      top: 0;
+      right: rem(-40);
+    }
+
+    @include min-media('xxl') {
+      right: rem(-48);
+    }
+  }
+
+  @include element($parent, 'swiper') {
+    max-width: rem(375);
+
+    @include min-media('t') {
+      max-width: rem(624);
+    }
+
+    @include min-media('d') {
+      max-width: rem(902);
+    }
+
+    @include min-media('xxl') {
+      max-width: rem(1136);
+    }
+  }
+
+  @include element($parent, 'swiper-slide') {
+    height: auto;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  @include element($parent, 'nav-container') {
+    @include modifier($parent, 'hidden') {
+      opacity: 0;
+    }
+  }
+
+  @include element($parent, 'nav-arrow') {
+    cursor: pointer;
+    width: rem(24);
+    height: rem(24);
+    stroke: $color-white;
+    position: absolute;
+    bottom: rem(-40);
+    transition: stroke 0.3s;
+    right: 42%;
+
+    &:hover {
+      stroke: rgba($color-white, 0.5);
+    }
+
+    @include min-media('t') {
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      right: rem(-40);
+    }
+
+    @include min-media('xxl') {
+      right: rem(-48);
+    }
+
+    @include modifier($parent, 'prev') {
+      left: 42%;
+      transform: rotate(180deg);
+
+      @include min-media('t') {
+        transform: translateY(-50%) rotate(180deg);
+        left: rem(-40);
+      }
+
+      @include min-media('xxl') {
+        left: rem(-48);
+      }
+    }
+  }
+}

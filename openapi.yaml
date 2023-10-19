@@ -1,0 +1,53 @@
+openapi: 3.0.0
+info:
+  title: 'DUO api'
+  version: '1.0'
+paths:
+  /api/form/callback:
+    post:
+      description: 'Отправка данных для обратной связи'
+      requestBody:
+        description: 'Данные с формы'
+        required: true
+        content:
+          application/json:
+            schema:
+              required:
+                - "name"
+                - "phone"
+              properties:
+                name:
+                  description: Имя пользователя
+                  example: Имя
+                  type: string
+                phone:
+                  description: Телефон пользователя
+                  example: +7 (111) 111-11-11
+                  type: string
+                message:
+                  type: string
+                  description: Сообщение пользователя
+                  example: Привет лунатикам
+                page:
+                  description: Адрес страницы
+                  example: http://localhost:3000/index.html?utm_campaign=blog_post
+                  type: string
+                formTitle:
+                  description: Название формы
+                  example: оставить заявку
+                  type: string
+                utm_[название]:
+                  description: Утм метка
+                  example: blog_post
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: 'Успешный ответ'
+          content:
+            application/json:
+              schema:
+                properties:
+                  isSuccess:
+                    type: boolean
+                type: object

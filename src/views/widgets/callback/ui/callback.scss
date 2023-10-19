@@ -1,0 +1,44 @@
+@import "src/views/shared/ui/picture/picture";
+
+$parent: 'callback';
+
+@include block($parent) {
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0 rem(16);
+
+
+  @include element($parent, "img") {
+    margin-top: rem(48);
+    aspect-ratio: 3.24/1;
+
+    @include min-media('t') {
+      margin-top: rem(72);
+      aspect-ratio: 3.33/1;
+      width: rem(732);
+      height: rem(220);
+    }
+
+    @include min-media('d') {
+      aspect-ratio: 3.34/1;
+      width: rem(1043);
+      height: rem(312);
+    }
+
+    @include min-media('xxl') {
+      margin-top: rem(112);
+      width: rem(1390);
+      height: rem(416);
+    }
+  }
+
+  @include element($parent, "title-form") {
+    text-align: center;
+    color: $color-nero;
+    margin-bottom: rem(24);
+
+    @include min-media('xxl') {
+      margin-bottom: rem(32);
+    }
+  }
+}

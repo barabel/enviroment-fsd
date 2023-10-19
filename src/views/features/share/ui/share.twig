@@ -1,0 +1,9 @@
+<div class="share {{ class }}">
+  {% for media in data %}
+    <button class="share__btn" type="button" {% if media.name %} data-name="{{ media.name }}" {% endif %}>
+      {% if media.icon %}
+        <img class="share__icon" src="{{ media.icon.src }}" alt="{{ media.icon.alt|default('icon') }}" >
+      {% endif %}
+    </button>
+  {% endfor %}
+</div>

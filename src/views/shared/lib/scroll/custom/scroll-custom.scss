@@ -1,0 +1,43 @@
+@import '../../../../../../node_modules/overlayscrollbars/styles/overlayscrollbars';
+
+.os-scrollbar {
+  .os-scrollbar-track {
+    width: 3px;
+  }
+
+  .os-scrollbar-handle {
+    left: 0;
+  }
+}
+
+.os-theme-dark {
+  --os-size: 2px;
+  --os-handle-border-radius: 0;
+  --os-handle-bg: #{$color-pigment-green};
+  --os-handle-perpendicular-size: 2px;
+  --os-track-bg: #{rgba($color-nero, 0.2)};
+  --os-track-bg-hover: #{rgba($color-nero, 0.2)};
+  --os-handle-bg-hover: #{$color-crusoe};
+  --os-track-bg-active: #{rgba($color-nero, 0.2)};
+  --os-handle-bg-active: #{$color-crusoe};
+  --os-padding-axis: 0px;
+  --os-padding-perpendicular: 0px;
+  --os-handle-perpendicular-size-hover: 2px;
+  --os-handle-perpendicular-size-active: 2px;
+}
+
+.os-theme-light {
+  --os-size: 2px;
+  --os-handle-border-radius: 0;
+  --os-handle-bg: #{$color-white};
+  --os-handle-perpendicular-size: 2px;
+  --os-track-bg: #{rgba($color-white, 0.2)};
+  --os-track-bg-hover: #{rgba($color-white, 0.2)};
+  --os-handle-bg-hover: #{rgba($color-white, 0.7)};
+  --os-track-bg-active: #{rgba($color-white, 0.2)};
+  --os-handle-bg-active: #{rgba($color-white, 0.7)};
+  --os-padding-axis: 0px;
+  --os-padding-perpendicular: 0px;
+  --os-handle-perpendicular-size-hover: 2px;
+  --os-handle-perpendicular-size-active: 2px;
+}

@@ -1,0 +1,18 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "react-politics";
+
+@include block($parent) {
+  @include element($parent, 'text') {
+    color: rgba($color-nero, 0.5);
+  }
+
+  @include element($parent, 'link') {
+    color: $color-nero;
+    transition: color 0.3s;
+
+    &:hover {
+      color: rgba($color-nero, 0.5);
+    }
+  }
+}

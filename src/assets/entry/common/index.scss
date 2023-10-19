@@ -1,0 +1,11 @@
+@import "../init.scss";
+@import "src/assets/styles/fonts";
+@import "src/assets/styles/base";
+@import "src/assets/styles/container";
+@import 'src/assets/styles/reset';
+@import "src/assets/styles/typography";
+
+@import "src/views/widgets/header/index.scss";
+@import "src/views/widgets/footer/index.scss";
+
+@import "src/views/shared/lib/scroll/custom/scroll-custom.scss";

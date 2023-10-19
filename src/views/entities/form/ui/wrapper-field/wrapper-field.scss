@@ -1,0 +1,36 @@
+@import "src/assets/styles/_for-react-components.scss";
+@import "../../../../../../node_modules/tippy.js/dist/tippy.css";
+@import "../../../../../../node_modules/tippy.js/themes/light.css";
+@import "../../../../../../node_modules/tippy.js/animations/scale.css";
+
+$parent: "wrapper-field";
+
+@include block($parent) {
+  position: relative;
+
+  @include element($parent, 'label') {
+    position: relative;
+    display: block;
+    cursor: text;
+  }
+
+  @include element($parent, 'tippy') {
+    display: block;
+  }
+
+  @include element($parent, 'error-icon') {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    right: rem(12);
+    width: rem(24);
+    height: rem(24);
+    transform: translateY(-50%);
+    cursor: pointer;
+    fill: transparent;
+  }
+
+  .tippy-box[data-theme~=light] {
+    box-shadow: rem(15) 5px rem(30) 0px rgba(0, 0, 0, 0.09);
+  }
+}

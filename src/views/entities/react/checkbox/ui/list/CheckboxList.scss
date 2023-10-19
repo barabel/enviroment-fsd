@@ -1,0 +1,36 @@
+@import "src/assets/styles/_for-react-components.scss";
+@import "../item/Checkbox";
+
+$parent: "checkboxList";
+
+@include block($parent) {
+  @include element($parent, "title") {
+    color: $color-nero;
+    margin-bottom: 4px;
+  }
+
+  @include element($parent, "checkboxes") {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 4px;
+    align-items: center;
+  }
+
+  @include element($parent, "checkbox") {
+    margin-right: 2px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @include modifier($parent, 'square') {
+    @include element($parent, 'checkbox') {
+      flex-grow: 1;
+
+      @include min-media('t') {
+        flex-grow: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+$parent: 'button-bullet';
+
+@include block($parent) {
+  margin-left: rem(28);
+  cursor: pointer;
+  white-space: nowrap;
+  color: rgba($color-nero, 0.5);
+
+  &:last-child {
+    margin-right: rem(28);
+  }
+
+  @include min-media('t') {
+    margin-left: rem(32);
+
+    &:last-child {
+      margin-right: rem(32);
+    }
+  }
+
+  @include min-media('d') {
+    margin-left: rem(64);
+
+    &:last-child {
+      margin-right: rem(64);
+    }
+  }
+
+  @include min-media('xxl') {
+    margin-left: rem(72);
+
+    &:last-child {
+      margin-right: rem(72);
+    }
+  }
+
+  &.tab-active {
+    margin-left: 0;
+    padding-left: rem(28);
+    pointer-events: none;
+    position: relative;
+    color: $color-nero;
+
+    @include min-media('t') {
+      padding-left: rem(32);
+    }
+
+    @include min-media('d') {
+      padding-left: rem(64);
+    }
+
+    @include min-media('xxl') {
+      padding-left: rem(72);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: rem(16);
+      top: 36%;
+      transform: translateY(-50%);
+      width: rem(8);
+      height: rem(8);
+      border-radius: 50%;
+      background-color: $color-pigment-green;
+
+      @include min-media('t') {
+        top: 50%;
+        left: rem(12);
+      }
+
+      @include min-media('d') {
+        left: rem(44);
+      }
+
+      @include min-media('xxl') {
+        left: rem(52);
+      }
+    }
+  }
+
+  @include element($parent, 'tablet-show') {
+    display: none;
+
+    @include min-media('t') {
+      display: inline;
+    }
+  }
+
+  @include element($parent, 'mobile-show') {
+    @include min-media('t') {
+      display: none;
+    }
+  }
+}

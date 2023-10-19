@@ -1,0 +1,5 @@
+{% include "@root/shared/ui/button/button.twig" with {
+  data: data|merge({ url: "" }),
+  class: "back-button " ~ class,
+  attributes: "data-return='" ~ data.returnLink ~ "'"
+} only %}

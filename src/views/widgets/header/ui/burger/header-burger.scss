@@ -1,0 +1,98 @@
+$parent: "header-burger";
+
+@include block($parent) {
+  position: relative;
+  width: rem(24);
+  height: rem(24);
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  span {
+    display: inline-block;
+    width: rem(24);
+    height: rem(24);
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 2px;
+      content: '';
+      width: rem(16);
+      height: 1px;
+      background-color: $color-nero;
+      transition: background-color 0.3s;
+
+      @include min-media('t') {
+        width: rem(20);
+      }
+    }
+
+    &::before {
+      top: rem(5);
+
+      @include min-media('t') {
+        top: rem(7);
+      }
+    }
+
+    &::after {
+      top: rem(10);
+
+      @include min-media('t') {
+        top: rem(13);
+      }
+    }
+  }
+
+  &:hover {
+    span {
+      &::before,
+      &::after {
+        background-color: rgba($color-nero, 0.5);
+      }
+    }
+  }
+
+  @include min-media('t') {
+    margin-right: rem(20);
+  }
+
+  @include min-media('d') {
+    margin-right: rem(28);
+  }
+
+  @include max-media('mMax') {
+    width: rem(56);
+    height: rem(60);
+    padding: 2px rem(16) 0;
+    margin: 0 rem(-16);
+    display: flex;
+    align-items: center;
+  }
+
+  @include modifier($parent, "opened") {
+    span {
+      &::before,
+      &::after {
+        left: 0;
+        width: rem(21);
+      }
+
+      &::before {
+        top: rem(11);
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        top: rem(11);
+        transform: rotate(-45deg);
+      }
+    }
+
+    @include max-media('dMax') {
+      margin-right: 0;
+    }
+  }
+}

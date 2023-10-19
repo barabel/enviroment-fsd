@@ -1,0 +1,18 @@
+{% block styles %}
+  <link rel="stylesheet" href="/assets/css/index.min.css">
+{% endblock %}
+
+{% extends "@root/layout/base.twig" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  {% if callback %}
+    {% include "@root/widgets/callback/index.twig" with { data: callback } only %}
+  {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  <script src="/assets/js/index.min.js"></script>
+{% endblock %}

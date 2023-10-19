@@ -1,0 +1,24 @@
+@import "../../../../shared/ui/link/link.scss";
+
+$parent: "header-phone-link";
+
+@include block($parent) {
+  @include element($parent, "logo") {
+    display: block;
+    width: rem(24);
+    height: rem(24);
+    fill: $color-nero;
+
+    @include min-media('d') {
+      display: none;
+    }
+  }
+
+  @include element($parent, "text") {
+    display: none;
+
+    @include min-media('d') {
+      display: block;
+    }
+  }
+}

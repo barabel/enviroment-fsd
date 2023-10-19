@@ -1,0 +1,23 @@
+<{{ data.url ? 'a' : 'button' }}
+class="link {{ typography|default('t4') }} {{ class }}"
+{% if data.url %} href="{{ data.url }}" {% endif %}
+{% if "//" in data.url %} target="_blank"{% endif %}
+{{ attributes }}
+{% if data.popup %} data-popup="{{ data.popup }}"{% endif %}>
+{% if data.icon %}
+  <svg class="link__icon">
+    <use xlink:href="/assets/svg/sprite.svg#{{ data.icon }}"></use>
+  </svg>
+{% endif %}
+{% if data.title %}
+<span class="link__wrapper">
+  <span class="link__content">
+    {{ data.title }}
+  </span>
+  <span class="link__content">
+    {{ data.title }}
+  </span>
+</span>
+{% endif %}
+
+</{{ data.url ? 'a' : 'button' }}>

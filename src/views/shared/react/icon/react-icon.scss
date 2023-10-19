@@ -1,0 +1,7 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "react-icon";
+
+@include block($parent) {
+  display: block;
+}

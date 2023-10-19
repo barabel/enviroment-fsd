@@ -1,0 +1,19 @@
+<div
+  class="video-block {{ class }}"
+  {% if data.url %}data-url="{{ data.url }}"{% endif %}
+  {% if data.preview %}data-preview="{{ data.preview }}"{% endif %}
+>
+  {% if data.preview %}
+    <div class="video-block__wrapper-preview">
+      <img class="video-block__preview" src="{{ data.preview }}" alt="preview">
+    </div>
+  {% else %}
+    {% include "@root/shared/ui/stub/stub.twig" with { class: "video-block__wrapper-preview" } only %}
+  {% endif %}
+  {% include "@root/shared/ui/button/play/button-play.twig" with {
+    data: {
+      attributes: 'type="button"'
+    },
+    class: "video-block__button-play"
+  } only %}
+</div>

@@ -1,0 +1,134 @@
+@import "../burger/header-burger.scss";
+
+$parent: "header-menu";
+
+@include block($parent) {
+  $animation-duration: 0.8s;
+
+  background-color: $color-white;
+
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility $animation-duration, opacity $animation-duration;
+
+  @include element($parent, "header-container") {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+  }
+
+  @include element($parent, 'callback') {
+    @include min-media('d') {
+      margin-left: auto;
+      margin-right: rem(24);
+    }
+  }
+
+  @include element($parent, "scroll-wrapper") {
+    -webkit-overflow-scrolling: touch;
+    height: calc(100% - #{rem(60)} - #{rem(115)});
+    margin: rem(40) 0 rem(63);
+    overflow: auto;
+
+    @include min-media('t') {
+      margin: rem(52) 0 rem(63);
+    }
+
+    @include min-media('d') {
+      margin: rem(13) 0 rem(63);
+    }
+
+    @include min-media('xxl') {
+      margin: rem(26) 0 rem(63);
+    }
+  }
+
+  @include element($parent, "links") {
+    padding: 0 rem(63);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  @include element($parent, "link") {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    color: $color-pigment-green;
+
+    opacity: 0;
+    transform-origin: 100% 0;
+
+    transition: color 0.3s;
+
+    &:not(:last-child) {
+      margin: 0 auto rem(24);
+    }
+
+    @include min-media('t') {
+      &:not(:last-child) {
+        margin: 0 auto rem(40);
+      }
+    }
+
+    @include min-media('d') {
+      &:not(:last-child) {
+        margin: 0 auto rem(30);
+      }
+    }
+
+    @include min-media('xxl') {
+      &:not(:last-child) {
+        margin: 0 auto rem(48);
+      }
+    }
+
+    @include modifier($parent, "fade") {
+      color: rgba($color-pigment-green, 0.5);
+    }
+
+    @include modifier($parent, "active") {
+      pointer-events: none;
+      color: $color-nero;
+    }
+
+    @include modifier($parent, "disabled") {
+      pointer-events: none;
+      color: rgba($color-pigment-green, 0.5);
+    }
+  }
+
+  .#{$parent}__link--fade.#{$parent}__link--active {
+    color: rgba($color-nero, 0.5);
+  }
+
+  @include modifier($parent, "opened") {
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+
+    @include element($parent, "link") {
+      animation: upLinks;
+      animation-fill-mode: forwards;
+      animation-duration: $animation-duration;
+      animation-delay: 1s;
+
+      @for $i from 1 through 9 {
+        &:nth-child(#{$i}) {
+          animation-delay: 0.1s * $i;
+        }
+      }
+    }
+  }
+
+  @keyframes upLinks {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}

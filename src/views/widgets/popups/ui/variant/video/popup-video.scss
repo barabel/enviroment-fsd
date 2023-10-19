@@ -1,0 +1,33 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "popup-video";
+
+@include block($parent) {
+  width: 100vw;
+  aspect-ratio: 375 / 211;
+  background-color: transparent;
+
+  @include min-media('t') {
+    aspect-ratio: 769 / 430;
+  }
+
+  @include min-media('d') {
+    width: calc(100vw - calc(208px * 2));
+    aspect-ratio: 1026 / 576;
+  }
+
+  @include min-media('xxl') {
+    width: calc(100vw - calc(248px * 2));
+    aspect-ratio: 1425 / 802;
+  }
+
+  @include element($parent, 'button-close') {
+    position: absolute;
+    top: rem(-40);
+    right: rem(16);
+  }
+
+  @include element($parent, 'player') {
+    display: block;
+  }
+}

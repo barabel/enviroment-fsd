@@ -1,0 +1,14 @@
+<div class="header-phone-link {{ class }}">
+  <a href="{{ "tel:" ~ phone }}">
+    <svg class="header-phone-link__logo">
+      <use xlink:href="/assets/svg/sprite.svg#phone"></use>
+    </svg>
+  </a>
+  {% include "@root/shared/ui/link/link.twig" with {
+    class: "header-phone-link__text",
+    data: {
+      url: "tel:" ~ phone,
+      title: phone
+    }
+  } only %}
+</div>

@@ -1,0 +1,48 @@
+$parent: "link";
+
+@include block($parent) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  color: $color-nero;
+  background-color: transparent;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: rgba($color-nero, 0.5);
+
+    @include element($parent, "content") {
+      transform: translateY(-100%);
+    }
+  }
+
+  @include element($parent, "icon") {
+    width: rem(26);
+    height: rem(26);
+    margin-right: rem(8);
+  }
+
+  @include element($parent, "wrapper") {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+  }
+
+  @include element($parent, "content") {
+    position: relative;
+    display: flex;
+    height: 100%;
+    transform: translateY(0);
+    transition: transform 0.6s cubic-bezier(0.25, 0.74, 0.22, 0.99);
+
+    &:nth-child(2) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }
+}

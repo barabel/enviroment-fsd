@@ -1,0 +1,16 @@
+$parent: "stub";
+
+@include block($parent) {
+  position: relative;
+  background: $color-ghost-white;
+
+  @include element($parent, 'svg') {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(73);
+    height: rem(25);
+    fill: rgba($color-nero, 0.2);
+  }
+}

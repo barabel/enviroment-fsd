@@ -1,0 +1,32 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "react-input";
+
+@include block($parent) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: rem(12);
+  border: none;
+  border-bottom: 1px solid rgba($color-nero, 0.2);
+  color: $color-nero;
+  transition: border-bottom 0.3s;
+
+  &:hover {
+    border-bottom-color: $color-nero;
+  }
+
+  &:placeholder-shown {
+    text-overflow: ellipsis;
+    color: rgba($color-nero, 0.5);
+  }
+
+  @include min-media('t') {
+    padding: rem(20) rem(12);
+  }
+
+  @include modifier($parent, 'disabled') {
+    color: rgba($color-nero, 0.2);
+  }
+}

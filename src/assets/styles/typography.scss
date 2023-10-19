@@ -1,0 +1,295 @@
+@import "src/assets/styles/media";
+@import "src/assets/styles/mixins";
+@import "src/assets/styles/variables";
+
+.header-font {
+  font-family: $header-font;
+  font-weight: 400;
+}
+
+.font {
+  font-family: $font;
+  font-weight: 400;
+}
+
+.h {
+  &1 {
+    @extend .header-font;
+    font-size: rem(40);
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(70);
+      line-height: 120%;
+      letter-spacing: 0.1em;
+    }
+
+    @include min-media('d') {
+      font-size: rem(96);
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(114);
+    }
+
+    @media screen and (min-width: 1800px) {
+      font-size: rem(128);
+    }
+  }
+
+  &2 {
+    @extend .header-font;
+    font-size: rem(36);
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(68);
+      letter-spacing: 0.1em;
+    }
+
+    @include min-media('d') {
+      font-size: rem(80);
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(106);
+    }
+  }
+
+  &3 {
+    @extend .header-font;
+    font-size: rem(26);
+    line-height: 125%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(34);
+      letter-spacing: 0.1em;
+    }
+
+    @include min-media('d') {
+      font-size: rem(40);
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(52);
+    }
+  }
+
+  &4 {
+    @extend .header-font;
+    font-size: rem(20);
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(32);
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(42);
+    }
+  }
+
+  &5 {
+    @extend .header-font;
+    font-size: rem(18);
+    line-height: 110%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      font-size: rem(20);
+      line-height: 125%;
+    }
+
+    @include min-media('d') {
+      font-size: rem(24);
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(32);
+    }
+  }
+
+  &6 {
+    @extend .header-font;
+    font-size: rem(16);
+    line-height: 125%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    @include min-media('xxl') {
+      font-size: rem(22);
+    }
+  }
+}
+
+.t {
+  &1 {
+    @extend .font;
+    font-size: rem(16);
+    line-height: 140%;
+    letter-spacing: 0;
+    text-transform: none;
+
+    @include min-media('t') {
+      line-height: 150%;
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(18);
+    }
+  }
+
+  &2 {
+    @extend .font;
+    font-size: rem(12);
+    line-height: 140%;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  &3 {
+    @extend .font;
+    font-weight: 500;
+    font-size: rem(12);
+    line-height: 140%;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  &4 {
+    @extend .font;
+    font-size: rem(12);
+    line-height: 140%;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      line-height: 135%;
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(14);
+    }
+  }
+
+  &5 {
+    @extend .font;
+    font-size: rem(9);
+    line-height: 140%;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    @include min-media('t') {
+      line-height: 135%;
+    }
+
+    @include min-media('xxl') {
+      font-size: rem(14);
+    }
+  }
+}
+
+.user-content {
+  color: rgba($color-nero, 0.7);
+
+  p {
+    @extend .t1;
+
+    &:not(:last-of-type) {
+      margin-bottom: rem(8);
+    }
+
+    & + ul,
+    & + ol {
+      margin-top: rem(16);
+    }
+  }
+
+  ul,
+  ol {
+    li {
+      @extend .t1;
+
+      &:not(:last-of-type) {
+        margin-bottom: rem(8);
+      }
+
+    }
+  }
+
+  ul {
+    li {
+      position: relative;
+      padding-left: rem(14);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: rem(9);
+        left: 0;
+        width: rem(6);
+        height: rem(6);
+        border-radius: 50%;
+        background-color: $color-pigment-green;
+      }
+    }
+  }
+
+  ol {
+    counter-reset: num;
+    list-style: none;
+    padding: 0;
+
+    li {
+      counter-increment: num;
+
+      &::before {
+        content: counters(num, '.') '. ';
+      }
+    }
+  }
+
+  a {
+    color: $color-pigment-green;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: rem(5);
+      }
+    }
+  }
+
+  h1 {
+    @extend .h1;
+  }
+
+  h2 {
+    @extend .h2;
+  }
+
+  h3 {
+    @extend .h3;
+  }
+
+  h4 {
+    @extend .h4;
+  }
+
+  h5 {
+    @extend .h5;
+  }
+
+  h6 {
+    @extend .h6;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="header-menu {{ class }}" data-scroll-lock-fill-gap>
+  <div class="header-menu__header">
+    <div class="header-menu__header-container container-header">
+      {% include "../burger/header-burger.twig" with { class: "header-burger--opened header-menu__burger" } only %}
+      {% include "../callback/header-callback.twig" with { class: "header-menu__callback" } only %}
+      {% if phone %}
+        {% include "../phone-link/header-phone-link.twig" with { class: "header-menu__phone", phone: phone } only %}
+      {% endif %}
+    </div>
+  </div>
+  {% if menu.links %}
+    <div class="header-menu__scroll-wrapper" data-scroll-lock-scrollable>
+      <div class="header-menu__links">
+        {% for link in menu.links %}
+          {% if link.title %}
+            <a
+              class="header-menu__link h3 {% if not link.url %}header-menu__link--disabled{% endif %}"
+              {% if link.url %} href="{{ link.url }}" {% endif %}
+            >
+              {{ link.title }}
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>

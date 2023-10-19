@@ -1,0 +1,92 @@
+/** breakpoints **/
+//$min-media-sizes: (
+//  "m": 375px,
+//  "t": 768px,
+//  'md': 1024px,
+//  "d": 1280px,
+//  "xl": 1440px,
+//  "xxl": 1600px,
+//  "xxxl": 1920px,
+//);
+
+//$max-media-sizes: (
+//  "sMax": 374px,
+//  "mMax": 767px,
+//  "tMax": 1023px,
+//  "dMax": 1279px,
+//  "xlMax": 1439px
+//);
+
+/** fonts **/
+$font: "Inter", system-ui, sans-serif;
+$header-font: "Lithium", system-ui, sans-serif;
+
+/** colors **/
+$color-white: #fff;
+$color-black: #000;
+$color-pigment-green: #00963c;
+$color-crusoe: #005924;
+$color-nero: #171717;
+$color-suva-grey: #898989;
+$color-ghost-white: #f7f7f8;
+$color-harley-davidson-orange: #d83713;
+$color-snow: #fcfcfc;
+$color-piper: #A15638;
+$color-pot-pourri: #ebdcd6;
+$color-rose-white: #f9f3f1;
+$color-onahau: #c6dfe8;
+$color-alice-blue: #eef4f9;
+$color-seashell: #fcf9f8;
+
+/** CSS Variables **/
+:root {
+  // Шапка
+  --header-z-index: 20;
+  --header-height: #{rem(60)};
+
+  // Контейнеры
+  --container-padding: #{rem(16)};
+  --container-details-news-padding: #{rem(16)};
+
+  @media screen and (min-width: 768px) {
+    // Шапка
+    --header-height: #{rem(87)};
+
+    // Контейнеры
+    --container-padding: #{rem(48)};
+    --container-details-news-padding: #{rem(48)};
+  }
+
+  @media screen and (max-width: 1024px) and (orientation: landscape) {
+    // Шапка
+    --header-height: #{rem(60)};
+  }
+
+  @include min-media('md') {
+    // Шапка
+    --header-height: #{rem(87)};
+
+    // Контейнеры
+    --container-padding: #{rem(48)};
+  }
+
+  @include min-media('d') {
+    // Контейнеры
+    --container-details-news-padding: #{rem(350)};
+  }
+
+  @include min-media('xl') {
+    // Контейнеры
+    --container-padding: #{rem(88)};
+  }
+
+  @include min-media('xxl') {
+    // Контейнеры
+    --container-details-news-padding: #{rem(480)};
+  }
+
+  @include min-media('xxxl') {
+    // Контейнеры
+    --container-padding: #{rem(120)};
+  }
+}

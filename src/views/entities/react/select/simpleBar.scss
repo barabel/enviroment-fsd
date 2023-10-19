@@ -1,0 +1,28 @@
+.scrollbar-vertical.os-scrollbar-vertical {
+  width: 2px;
+}
+
+.scrollbar-vertical > .os-scrollbar-track,
+.scrollbar-vertical > .os-scrollbar-track:hover {
+  background: rgba($color-nero, 0.2);
+}
+
+.scrollbar-vertical > .os-scrollbar-track > .os-scrollbar-handle {
+  background: $color-pigment-green;
+  border-radius: inherit;
+  cursor: pointer;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 2px;
+  background: rgba($color-nero, 0.2);
+
+  .simplebar-scrollbar {
+    &::before {
+      opacity: 1;
+      background: $color-pigment-green;
+      left: 0;
+      right: 0;
+    }
+  }
+}

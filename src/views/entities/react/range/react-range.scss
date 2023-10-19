@@ -1,0 +1,87 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "react-range";
+
+@include block($parent) {
+  // Фон ренжа
+  --rr-bg-color: transparent;
+
+  // Цвета ползунка
+  --rr-thumb-border-color: #{$color-pigment-green};
+  --rr-thumb-bg-color: #{$color-white};
+  --rr-thumb-bg-color-hover: #{$color-pigment-green};
+  --rr-thumb-bg-color-grabbed: #{$color-pigment-green};
+
+  // Цвет значений ренжа
+  --rr-number-color: #{rgba($color-nero, 0.5)};
+
+  // Стили родителя
+  position: relative;
+  cursor: pointer;
+  padding: rem(8) rem(8) 0;
+  background-color: var(--rr-bg-color);
+
+  @include element($parent, "track-outer-copy") {
+    position: absolute;
+    top: rem(8);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: rem(24);
+  }
+
+  @include element($parent, "track-outer") {
+    display: flex;
+    width: 100%;
+    height: rem(24);
+    background: var(--rr-thumb-bg-color);
+  }
+
+  @include element($parent, "track-inner-copy") {
+    align-self: center;
+    width: 100%;
+    height: 1px;
+  }
+
+  @include element($parent, "track-inner") {
+    align-self: center;
+    width: 100%;
+    height: 1px;
+  }
+
+  @include element($parent, "thumb") {
+    width: rem(18);
+    height: rem(18);
+    border: 1px solid var(--rr-thumb-border-color);
+    border-radius: rem(50);
+    background-color: var(--rr-thumb-bg-color);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--rr-thumb-bg-color-hover);
+    }
+
+    @include modifier($parent, "grabbed") {
+      background-color: var(--rr-thumb-bg-color-grabbed);
+    }
+  }
+
+  @include element($parent, "number") {
+    z-index: 1;
+    position: absolute;
+    top: rem(-6);
+    left: 0;
+    color: var(--rr-number-color);
+
+    @include modifier($parent, 'first') {
+      left: 0;
+    }
+
+    @include modifier($parent, 'second') {
+      left: auto;
+      right: 0;
+    }
+  }
+}

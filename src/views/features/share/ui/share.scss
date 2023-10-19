@@ -1,0 +1,20 @@
+$parent: "share";
+
+@include block($parent) {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+
+  @include element($parent, 'btn') {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    transition: filter 0.3s;
+
+    @media (hover: hover) {
+      &:hover {
+        filter: brightness(120%);
+      }
+    }
+  }
+}

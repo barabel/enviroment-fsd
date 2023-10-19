@@ -1,0 +1,46 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "react-textarea";
+
+@include block($parent) {
+  max-height: rem(42);
+  border-bottom: 1px solid rgba($color-nero, 0.2);
+
+  &:hover {
+    border-bottom-color: $color-nero;
+  }
+
+  @include min-media('t') {
+    max-height: rem(60);
+  }
+
+  @include element($parent, 'input') {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: rem(41);
+    padding: rem(12);
+    border: none;
+    color: $color-nero;
+    resize: none;
+    transition: border-bottom 0.3s;
+    margin: 0;
+
+    &:placeholder-shown {
+      text-overflow: ellipsis;
+      color: rgba($color-nero, 0.5);
+    }
+
+    @include min-media('t') {
+      min-height: rem(59);
+      padding: rem(20) rem(12);
+    }
+  }
+
+  @include modifier($parent, 'disabled') {
+    @include element($parent, 'input') {
+      color: rgba($color-nero, 0.2);
+    }
+  }
+}

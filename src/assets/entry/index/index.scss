@@ -1,0 +1,7 @@
+@import "../init.scss";
+@import "src/views/widgets/callback/index";
+
+// убрать когда начнется новый проект
+.callback {
+  margin-top: var(--header-height);
+}

@@ -1,0 +1,262 @@
+@import "src/assets/styles/_for-react-components.scss";
+@import "../../../../../node_modules/simplebar-react/dist/simplebar.min";
+@import "./simpleBar";
+
+$parent: "react-select";
+
+@include block($parent) {
+  // Фон селекта
+  --rs-bg-color: transparent;
+
+  // Цвета границ селекта
+  --rs-border-color: #{rgba($color-nero, 0.2)};
+  --rs-border-color-hover: #{$color-nero};
+  --rs-border-color-menu-is-open: transparent;
+  --rs-border-color-is-focused: #{$color-nero};
+
+  // Цвет текста плейсхолдера
+  --rs-placeholder-color: #{rgba($color-nero, 0.5)};
+
+  // Цвета текста выбранных вариантов селекта
+  --rs-color: #{$color-nero};
+  --rs-color-hover: #{$color-nero};
+  --rs-color-is-focused: #{$color-nero};
+
+  // Цвет иконки состояния селекта (открыт, закрыт)
+  --rs-indicator-fill: transparent;
+
+  // Цвет чекбокса в мультиселекте
+  --rs-checkmark-fill: transparent;
+  --rs-checkmark-bg-color: transparent;
+  --rs-checkmark-bg-color-is-selected: #{$color-pigment-green};
+  --rs-checkmark-border-color: #{rgba($color-nero, 0.7)};
+  --rs-checkmark-border-color-is-selected: #{$color-pigment-green};
+
+  // Цвета выпадающего списка
+  --rs-menu-border-color: #{$color-pigment-green};
+  --rs-menu-bg-color: #{$color-white};
+
+  // Фон варианта в выпадающем списке
+  --rs-option-bg-color: #{$color-white};
+  --rs-option-bg-color-is-selected: #{$color-ghost-white};
+
+  // Цвет границ варианта в выпадающем списке
+  --rs-option-border-color: #{rgba($color-nero, 0.2)};
+
+  // Цвета текста варианта в выпадающем списке
+  --rs-option-color: #{rgba($color-nero, 0.7)};
+  --rs-option-color-is-selected: #{$color-nero};
+  --rs-option-color-is-focused: #{$color-nero};
+
+  // Анимация
+  --rs-transition: 0.3s ease;
+
+  @include element($parent, "control") {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    padding: rem(12) rem(12) rem(6);
+    border-bottom: 1px solid var(--rs-border-color);
+    cursor: pointer;
+    color: var(--rs-color);
+    background-color: var(--rs-bg-color);
+    transition: border-color var(--rs-transition), color var(--rs-transition);
+
+    &:hover {
+      border-color: var(--rs-border-color-hover);
+      color: var(--rs-color-hover);
+    }
+
+    @include min-media('t') {
+      padding: rem(10) rem(12) rem(6);
+    }
+
+    @include min-media('d') {
+      padding: rem(7) rem(12) rem(9);
+    }
+
+    @include modifier($parent, "is-focused") {
+      transition: none;
+      border-color: var(--rs-border-color-is-focused);
+      color: var(--rs-color-is-focused);
+    }
+
+    @include modifier($parent, "menu-is-open") {
+      border-color: var(--rs-border-color-menu-is-open);
+
+      @include element($parent, "indicator") {
+        transform: rotate(180deg);
+
+        svg {
+          stroke: #{$color-pigment-green};
+        }
+      }
+    }
+  }
+
+  @include element($parent, "value-container") {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+
+    @include modifier($parent, "is-multi") {
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  @include element($parent, "placeholder") {
+    display: inline;
+    color: var(--rs-placeholder-color);
+    text-transform: uppercase;
+  }
+
+  @include element($parent, "single-value") {
+    text-transform: uppercase;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @include element($parent, "multi-value") {
+    text-transform: uppercase;
+    padding-right: rem(5);
+
+    &::after {
+      content: ",";
+    }
+
+    &:last-of-type {
+      padding-right: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+
+  @include element($parent, "indicators") {
+    flex-shrink: 0;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    padding: rem(5) 0 rem(5) rem(10);
+  }
+
+  @include element($parent, "indicator") {
+    display: flex;
+
+    svg {
+      width: rem(16);
+      height: rem(16);
+      fill: var(--rs-indicator-fill);
+      stroke: $color-nero;
+    }
+  }
+
+  @include element($parent, "menu") {
+    position: absolute;
+    width: 100%;
+    border: 1px solid var(--rs-menu-border-color);
+    background-color: var(--rs-menu-bg-color);
+    max-height: rem(150);
+    z-index: 999;
+  }
+
+  @include element($parent, "option") {
+    display: block;
+    width: 100%;
+    padding: rem(16);
+    border-bottom: 1px solid var(--rs-option-border-color) ;
+    background-color: var(--rs-option-bg-color);
+    color: var(--rs-option-color);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-transform: uppercase;
+
+    &:last-child {
+      background-color: transparent;
+    }
+
+    @include modifier($parent, "is-selected") {
+      background-color: var(--rs-option-bg-color-is-selected);
+      color: var(--rs-option-color-is-selected);
+
+      @include element($parent, 'multi-option-checkmark') {
+        border-color: var(--rs-checkmark-border-color-is-selected);
+        background-color: var(--rs-checkmark-bg-color-is-selected);
+      }
+    }
+
+    @include modifier($parent, "is-focused") {
+      color: var(--rs-option-color-is-focused);
+    }
+
+    @include modifier($parent, "hidden") {
+      display: none;
+    }
+  }
+
+  @include element($parent, "multi-option") {
+    display: flex;
+    align-items: center;
+  }
+
+  @include element($parent, "multi-option-input") {
+    display: none;
+
+    &:checked + .#{$parent}__multi-option-checkmark {
+      svg {
+        display: block;
+      }
+    }
+  }
+
+  @include element($parent, "multi-option-checkmark") {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(16);
+    height: rem(16);
+    margin-right: rem(8);
+    border: 1px solid var(--rs-checkmark-border-color);
+    background-color: var(--rs-checkmark-bg-color);
+
+    svg {
+      display: none;
+      width: rem(8);
+      height: rem(8);
+      fill: var(--rs-checkmark-fill);
+    }
+  }
+
+  @include element($parent, "multi-option-label") {
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  @include modifier($parent, 'single') {
+    @include element($parent, 'control') {
+      border-bottom: transparent;
+      padding: 0;
+    }
+
+    @include element($parent, 'menu') {
+      width: rem(240);
+    }
+  }
+
+  @include modifier($parent, 'from-left') {
+    @include element($parent, 'menu') {
+      right: 0;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import "src/assets/styles/_for-react-components.scss";
+
+$parent: "popup-message";
+
+@include block($parent) {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: rem(375);
+  padding: rem(64) rem(32);
+  background-color: $color-white;
+
+  @include element($parent, 'button-close') {
+    position: absolute;
+    top: rem(24);
+    right: rem(24);
+  }
+
+  @include element($parent, 'title') {
+    margin-bottom: rem(12);
+    color: $color-pigment-green;
+    text-align: center;
+  }
+
+  @include element($parent, 'description') {
+    text-align: center;
+    color: rgba($color-nero, 0.7);
+  }
+}
